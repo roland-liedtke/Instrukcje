@@ -103,7 +103,7 @@ Jeśli nic nie grzebaliście w uprawnieniach to nie powinno być tutaj nic do zr
 ### 8. Instalujemy WP
 `UWAGA:` Jeśli macie podpięty na hostingu SSL to warto przy instalacji podać adres z `https://`
 
-EXTRA:
+### EXTRA:
 - Nie używamy loginu ADMIN. Stosujmy mniej oczywistą nazwę użytkownika, który ma uprawnienia administratora 
 - Stosujmy skomplikowane hasła. Nie dawajcie tego samego hasła do panelu WordPress, do bazy danych, jako hasło do FTP lub innego powiązanego z Waszą witryną miejsca. Nie zapisujcie haseł w przeglądarce
 - Aktualizujmy motywy, wtyczki i wordpressa <br>
