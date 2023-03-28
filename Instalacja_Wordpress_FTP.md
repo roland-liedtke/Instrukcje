@@ -20,7 +20,19 @@
 
 2. Zmieniamy prefix bazy danych z `wp_` na coś innego
 
-3. Generujemy własne klucze zabezpieczające dane przechowywane w ciasteczkach ( Własne klucze można wygenerować tutaj: https://api.wordpress.org/secret-key/1.1/salt/ )
+### 7. Dodatkowe Zabezpieczenia
+
+1. Instalujemy certyfikat SSL
+
+2. Generujemy własne klucze zabezpieczające dane przechowywane w ciasteczkach ( Własne klucze można wygenerować tutaj: https://api.wordpress.org/secret-key/1.1/salt/ )
+
+3. Ukrywamy błędy ( w pliku `wp-config.php` ). Szukamy teraz:
+<pre>define('WP_DEBUG', false); </pre>
+i zamieniamy ten fragment na:
+<pre>define('WP_DEBUG', false);
+if ( ! WP_DEBUG ) {
+ini_set('display_errors', 0);
+} </pre>
 
 4. Przenosimy dane bazy. Szukamy poniższego fragmentu i kopiujemy do innego pliku – przykładowo `wp-config-data.php`
 <pre>define('DB_NAME', 'moja_baza');
@@ -33,25 +45,13 @@ define('DB_COLLATE', ''); </pre>
 5. Następnie w pliku `wp-config.php` dodajemy:
 <pre>require_once "wp-config-data.php"; </pre>
 
-6. Ukrywamy błędy ( w pliku `wp-config.php` ). Szukamy teraz:
-<pre>define('WP_DEBUG', false); </pre>
-i zamieniamy ten fragment na:
-<pre>define('WP_DEBUG', false);
-if ( ! WP_DEBUG ) {
-ini_set('display_errors', 0);
-} </pre>
-
-7. Wyłączamy możliwość edycji plików motywu i wtyczek bezpośrednio przez panel WordPress. W pliku `wp-config.php` dopisując do niego fragment:
+6. Wyłączamy możliwość edycji plików motywu i wtyczek bezpośrednio przez panel WordPress. W pliku `wp-config.php` dopisując do niego fragment:
 <pre>define('DISALLOW_FILE_EDIT', true); </pre>
 
-### 7. Dodatkowe ustawienia
-
-1. Instalujemy certyfikat SSL
-
-2. Usuwamy informacje o wersji wordpressa. W pliku `functions.php` dodajemy fragment:
+7. Usuwamy informacje o wersji wordpressa. W pliku `functions.php` dodajemy fragment:
 <pre>function remove_version_info() { return ''; } add_filter('the_generator', 'remove_version_info'); remove_action('wp_head', 'wp_generator');</pre>
 
-3. Blokujmy dostęp do pliku `wp-login.php`
+8. Blokujmy dostęp do pliku `wp-login.php`
 Najprostsza metoda zabezpieczenia tegoż pliku to dodanie w `.htaccess` takie cuda:
 ```
 <IfModule mod_rewrite.c>
@@ -63,7 +63,7 @@ RewriteRule ^(.*)$ - [R=403,L]
 </IfModule>
 ```
 
-4. Blokujemy dostęp do pliku `xmlrpc.php`
+9. Blokujemy dostęp do pliku `xmlrpc.php`
 Plik ten jest drugim w kolejności, który jest najczęściej atakowany (pierwszy to wp-login.php). Jeśli nie korzysta się z interfejsu XML-RPC to można go całkowicie zablokować dodając w `.htaccess`:
 ```
 <files xmlrpc.php>
@@ -72,7 +72,7 @@ deny from all
 </files>
 ```
 
-5. Blokujemy dostęp do kolejnych plików
+10. Blokujemy dostęp do kolejnych plików
 Są pliki, do których NIKT NIGDY nie powinien mieć dostępu. Należy wpisać w pliku `.htaccess`:
 ```
 <FilesMatch "wp-config.*\.php|\.htaccess|readme\.html">
@@ -81,7 +81,7 @@ Deny from all
 </FilesMatch>
 ```
 
-6. Włączamy zabezpieczenia dla `wp-includes`
+11. Włączamy zabezpieczenia dla `wp-includes`
 W katalogu `wp-includes` tworzymy plik `.htaccess` i dodajemy do niego:
 ```
 <FilesMatch "\.(?i:php)$">
@@ -96,14 +96,14 @@ Allow from all
 </Files>
 ```
 
-7. Sprawdzamy uprawnienia do katalogów
+12. Sprawdzamy uprawnienia do katalogów
 Jeśli nic nie grzebaliście w uprawnieniach to nie powinno być tutaj nic do zrobienia. Standardowy schemat uprawnień wygląda mniej więcej tak:
 <pre>katalog główny / – 644
 /wp-admin – 644
 /wp-includes – 644
 /wp-content/uploads – 755</pre>
 
-8. Wyłączamy możliwość rejestracji przypadkowych osobników ( Ustawienia / Ogólne / Członkostwo )
+13. Wyłączamy możliwość rejestracji przypadkowych osobników ( Ustawienia / Ogólne / Członkostwo )
 
 ### 8. Instalujemy WP
 `UWAGA:` Jeśli macie podpięty na hostingu SSL to warto przy instalacji podać adres z `https://`
