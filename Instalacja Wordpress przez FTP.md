@@ -53,33 +53,37 @@ ini_set('display_errors', 0);
 
 3. Blokujmy dostęp do pliku `wp-login.php`
 Najprostsza metoda zabezpieczenia tegoż pliku to dodanie w `.htaccess` takie cuda:
-        <code><IfModule mod_rewrite.c>
+```
+<IfModule mod_rewrite.c>
 RewriteEngine On
 RewriteCond %{REQUEST_METHOD} POST
 RewriteCond %{HTTP_REFERER} !^http://(.*)?.nasza-domena.pl [NC]
 RewriteCond %{REQUEST_URI} ^/wp-login\.php(.*)$
 RewriteRule ^(.*)$ - [R=403,L]
-          </IfModule></code>
+</IfModule>
+```
 
 4. Blokujemy dostęp do pliku `xmlrpc.php`
 Plik ten jest drugim w kolejności, który jest najczęściej atakowany (pierwszy to wp-login.php). Jeśli nie korzysta się z interfejsu XML-RPC to można go całkowicie zablokować dodając w `.htaccess`:
-<pre>
+```
 <files xmlrpc.php>
 order deny,allow
 deny from all
-      </files> </pre>
+</files>
+```
 
 5. Blokujemy dostęp do kolejnych plików
 Są pliki, do których NIKT NIGDY nie powinien mieć dostępu. Należy wpisać w pliku `.htaccess`:
-<pre>
+```
 <FilesMatch "wp-config.*\.php|\.htaccess|readme\.html">
-   Order allow,deny
-   Deny from all
-      </FilesMatch> </pre>
+Order allow,deny
+Deny from all
+</FilesMatch>
+```
 
 6. Włączamy zabezpieczenia dla `wp-includes`
 W katalogu `wp-includes` tworzymy plik `.htaccess` i dodajemy do niego:
-<pre>
+```
 <FilesMatch "\.(?i:php)$">
 Order allow,deny
 Deny from all
@@ -89,14 +93,15 @@ Allow from all
 </Files>
 <Files ms-files.php>
 Allow from all
-      </Files> </pre>
+</Files>
+```
 
 7. Sprawdzamy uprawnienia do katalogów
 Jeśli nic nie grzebaliście w uprawnieniach to nie powinno być tutaj nic do zrobienia. Standardowy schemat uprawnień wygląda mniej więcej tak:
-> katalog główny / – 644 <br>
-> /wp-admin – 644 <br>
-> /wp-includes – 644 <br>
-> /wp-content/uploads – 755
+<pre>katalog główny / – 644
+/wp-admin – 644
+/wp-includes – 644
+/wp-content/uploads – 755</pre>
 
 8. Wyłączamy możliwość rejestracji przypadkowych osobników ( Ustawienia / Ogólne / Członkostwo )
 
