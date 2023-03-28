@@ -1,7 +1,7 @@
 # Instalacja WordPress przez FTP ( File Transfer Protocol )
 
 ### 1. Potrzebny będzie nam klient FTP
-- (np. FileZilla)
+- (np. FileZilla - MacOS, WinSCP - Windows)
   
 ### 2. Ogarniamy dane do FTP
 - (host, login, hasło, protokół i port (dwa ostatnie to najczęściej FTP / 21)
@@ -15,18 +15,18 @@
 - ( nazwa bazy, nazwa użytkownika, hasło ) <br>
 `UWAGA:` Pamiętaj by dać jakieś mało oczywiste hasło i nazwę użytkownika
   
-### 6. Uzupełniamy dane w pliku wp-config
-- W plikach, które wgraliśmy szukamy `wp-config-sample.php` i zmieniamy mu nazwę `na wp-config.php`. Następnie otwieramy plik w edytorze tekstowym i w miejscu na dane bazy wpisujemy to co udało nam się wyczarować w panelu hostingowym
+### 6. Uzupełniamy WP-CONFIG
+- W plikach, które wgraliśmy szukamy `wp-config-sample.php` i zmieniamy mu nazwę na `wp-config.php`. Następnie otwieramy plik w edytorze tekstowym i w miejscu na dane bazy wpisujemy to co udało nam się wyczarować w panelu hostingowym
 - Zmieniamy prefix bazy danych z `wp_` na coś innego
 - Generujemy własne klucze zabezpieczające dane przechowywane w ciasteczkach ( Własne klucze można wygenerować tutaj: https://api.wordpress.org/secret-key/1.1/salt/ )
-- Przenosimy dane bazy. Szukamy fragmentu:
+- Przenosimy dane bazy. Szukamy poniższego fragmentu i kopiujemy do innego pliku – przykładowo `wp-config-data.php`
 <pre>define('DB_NAME', 'moja_baza');
 define('DB_USER', 'moj_user');
 define('DB_PASSWORD', 'moje_haslo');
 define('DB_HOST', 'moj_host');
 define('DB_CHARSET', 'utf8');
 define('DB_COLLATE', ''); </pre>
-i kopiujemy je do innego pliku – przykładowo `wp-config-data.php` a następnie w pliku `wp-config.php` dodajemy:
+- Następnie w pliku `wp-config.php` dodajemy:
 <pre>require_once "wp-config-data.php"; </pre>
 - Ukrywamy błędy ( w pliku `wp-config.php` ). Szukamy teraz:
 <pre>define('WP_DEBUG', false); </pre>
