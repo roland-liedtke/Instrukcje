@@ -116,3 +116,10 @@ Jeśli nic nie grzebaliście w uprawnieniach to nie powinno być tutaj nic do zr
 - Usuwajmy nieużywane i zbędne wtyczki oraz motywy
 - Korzystajmy wyłącznie z zaufanych źródeł wtyczek i motywów
 - Wykonuj codziennie BACKUPY Backupy są ważne nie tylko wtedy, gdy coś psujecie. Warto je robić na bieżąco by w razie wstrzyknięcia złośliwego kodu lub innego ustrojstwa mieć z czego przywrócić stronę
+- Po zainstalowaniu WP przejdź do sekcji USTAWIENIA – OGÓLNE zmień SLOGAN, a w sekcji BEZPOŚREDNIE ODNOŚNIKI np. na nazwa wpisu lub stwórz własny format – na pewno nie zaznaczaj opcji PROSTY
+- Wtyczki / motywy najlepiej testuj poza docelową stroną, bo nawet jak zostaną usunięte to zostawiają po sobie ślady chociażby w bazie danych. 
+- Jeśli wgrywasz demo motywu sprawdź wtyczki czy wszystkie, które się z nim zainstalowały na pewno są Ci potrzebne. Usuń wszystkie, które zbędne. 
+- Przy instalacji demo zaciągane są też podstrony, wpisy, produkty oraz np. portfolio czy jeszcze inne typy wpisów – pamiętaj by przed puszczeniem w świat strony wszystkie rzeczy z demo pousuwać by nie zostały zaindeksowane.
+- Pamiętaj o polityce prywatności, informacji o ciasteczkach i regulaminie jeśli masz sklep oraz ewentualnie innych prawnych dokumentach, których wymaga Twój projekt np. regulamin programu partnerskiego, jeśli takowy jest u Ciebie. Pamiętaj także, by przy formularzach kontaktu, newslettera, etc dodać checkbox ze zgodą na przetwarzanie danych osobowych.
+- Dodaj do strony reCaptchę by uniknąć spamu prz formularzach np. kontaktowym.
+- Pamiętaj o dodaniu do strony Google Analytics, Google Search Console oraz ewentualnie piksela Facebooka – w końcu przyjdzie taki moment, że będziesz chcieć sprawdzić statystyki czy zacząć reklamę na FB.
