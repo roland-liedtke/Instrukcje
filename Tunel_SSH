@@ -1,0 +1,12 @@
+Source Port: 8888
+
+Destination: localhost:( 80 / 443 )
+
+http://127.0.0.1:8888/phpMyAdmin/
+
+ssh -i /location_to_private_key -L 8888:127.0.0.1:80 bitnami@AWS_SERVER_IP_ADDRESS
+
+https://127.0.0.1:8888/phpMyAdmin/
+
+ssh -i /location_to_private_key -L 8888:127.0.0.1:443 bitnami@AWS_SERVER_IP_ADDRESS
+
