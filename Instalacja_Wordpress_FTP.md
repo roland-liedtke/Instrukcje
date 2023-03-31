@@ -16,12 +16,21 @@
 `UWAGA:` Pamiętaj by dać jakieś mało oczywiste hasło i nazwę użytkownika
   
 ### 6. Uzupełniamy WP-CONFIG
-1. W plikach, które wgraliśmy szukamy `wp-config-sample.php` i zmieniamy mu nazwę na `wp-config.php`. Następnie otwieramy plik w edytorze tekstowym i w miejscu na dane bazy wpisujemy to co udało nam się wyczarować w panelu hostingowym
+1. W plikach, które wgraliśmy szukamy `wp-config-sample.php` i zmieniamy mu nazwę na `wp-config.php`. Następnie otwieramy plik w edytorze tekstowym i w miejscu na dane bazy wpisujemy to co udało nam się wyczarować w panelu hostingowym.
 
-2. Zmieniamy prefix bazy danych z `wp_` na coś innego ( `$table_prefix = 'wp_';` ).
+2. Zmieniamy prefiks w pliku konfiguracyjnym CMS `wp-config.php` na serwerze FTP z `wp_` na coś innego ( `$table_prefix = 'wp_';` ).
 
-3. W phpMyAdmin zmieniamy prefixy tabel.
+3. Zmieniamy prefiks tabel bazy danych w phpMyAdmin.
 
+4. Zmieniamy wartości wybranych opcji w tabeli bazy danych ( `wp_options` ):
+- `wp_user_roles`,
+
+5. Zmieniamy wartości wybranych opcji w tabeli bazy danych ( `wp_usermeta` ):
+- `wp_capabilities`,
+- `wp_user_level`,
+- `wp_user-settings`,
+- `wp_dashboard_quick_press_last_post_id`,
+- `wp_user-settings-time`.
 
 ### 7. Dodatkowe Zabezpieczenia
 
