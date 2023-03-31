@@ -92,6 +92,7 @@ Order allow,deny
 Deny from all
 </FilesMatch>
 ```
+Plik `.htaccess` powinien mieć uprawnienia 644.
 
 11. Włączamy zabezpieczenia dla `wp-includes`
 W katalogu `wp-includes` tworzymy plik `.htaccess` i dodajemy do niego:
