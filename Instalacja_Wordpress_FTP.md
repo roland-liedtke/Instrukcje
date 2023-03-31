@@ -16,9 +16,9 @@
 `UWAGA:` Pamiętaj by dać jakieś mało oczywiste hasło i nazwę użytkownika
   
 ### 6. Uzupełniamy WP-CONFIG
-1. W plikach, które wgraliśmy szukamy `wp-config-sample.php` i zmieniamy mu nazwę na `wp-config.php`. Następnie otwieramy plik w edytorze tekstowym i w miejscu na dane bazy wpisujemy to co udało nam się wyczarować w panelu hostingowym.
+1. Na serwerze szukamy `wp-config-sample.php` i zmieniamy nazwę na `wp-config.php`. Otwieramy plik w edytorze tekstowym i wpisujemy to co udało się wyczarować w panelu hostingowym.
 
-2. Zmieniamy prefiks w pliku konfiguracyjnym CMS `wp-config.php` na serwerze FTP z `wp_` na coś innego ( `$table_prefix = 'wp_';` ).
+2. Zmieniamy prefiks w pliku konfiguracyjnym `wp-config.php` na serwerze FTP z `wp_` na coś innego ( `$table_prefix = 'wp_';` ).
 
 3. Zmieniamy prefiks tabel bazy danych w phpMyAdmin.
 
@@ -122,17 +122,13 @@ Jeśli nic nie grzebaliście w uprawnieniach to nie powinno być tutaj nic do zr
 `UWAGA:` Jeśli macie podpięty na hostingu SSL to warto przy instalacji podać adres z `https://`
 
 ### EXTRA:
-- Nie używamy loginu ADMIN. Stosujmy mniej oczywistą nazwę użytkownika, który ma uprawnienia administratora 
-- Stosujmy skomplikowane hasła. Nie dawajcie tego samego hasła do panelu WordPress, do bazy danych, jako hasło do FTP lub innego powiązanego z Waszą witryną miejsca. Nie zapisujcie haseł w przeglądarce
 - Aktualizujmy motywy, wtyczki i wordpressa <br>
 `UWAGA:` przed przystąpieniem do aktualizacji warto sobie zrobić backup strony
 - Usuwajmy nieużywane i zbędne wtyczki oraz motywy
-- Korzystajmy wyłącznie z zaufanych źródeł wtyczek i motywów
-- Wykonuj codziennie BACKUPY Backupy są ważne nie tylko wtedy, gdy coś psujecie. Warto je robić na bieżąco by w razie wstrzyknięcia złośliwego kodu lub innego ustrojstwa mieć z czego przywrócić stronę
+- Wykonuj codziennie BACKUPY. Są one ważne nie tylko wtedy, gdy coś psujecie. Warto je robić na bieżąco by w razie wstrzyknięcia złośliwego kodu lub innego ustrojstwa mieć z czego przywrócić stronę.
 - Po zainstalowaniu WP przejdź do sekcji USTAWIENIA – OGÓLNE zmień SLOGAN, a w sekcji BEZPOŚREDNIE ODNOŚNIKI np. na nazwa wpisu lub stwórz własny format – na pewno nie zaznaczaj opcji PROSTY
 - Wtyczki / motywy najlepiej testuj poza docelową stroną, bo nawet jak zostaną usunięte to zostawiają po sobie ślady chociażby w bazie danych. 
 - Jeśli wgrywasz demo motywu sprawdź wtyczki czy wszystkie, które się z nim zainstalowały na pewno są Ci potrzebne. Usuń wszystkie, które zbędne. 
 - Przy instalacji demo zaciągane są też podstrony, wpisy, produkty oraz np. portfolio czy jeszcze inne typy wpisów – pamiętaj by przed puszczeniem w świat strony wszystkie rzeczy z demo pousuwać by nie zostały zaindeksowane.
 - Pamiętaj o polityce prywatności, informacji o ciasteczkach i regulaminie jeśli masz sklep oraz ewentualnie innych prawnych dokumentach, których wymaga Twój projekt np. regulamin programu partnerskiego, jeśli takowy jest u Ciebie. Pamiętaj także, by przy formularzach kontaktu, newslettera, etc dodać checkbox ze zgodą na przetwarzanie danych osobowych.
 - Dodaj do strony reCaptchę by uniknąć spamu prz formularzach np. kontaktowym.
-- Pamiętaj o dodaniu do strony Google Analytics, Google Search Console oraz ewentualnie piksela Facebooka – w końcu przyjdzie taki moment, że będziesz chcieć sprawdzić statystyki czy zacząć reklamę na FB.
