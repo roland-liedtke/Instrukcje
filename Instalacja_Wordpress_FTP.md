@@ -18,7 +18,10 @@
 ### 6. Uzupełniamy WP-CONFIG
 1. W plikach, które wgraliśmy szukamy `wp-config-sample.php` i zmieniamy mu nazwę na `wp-config.php`. Następnie otwieramy plik w edytorze tekstowym i w miejscu na dane bazy wpisujemy to co udało nam się wyczarować w panelu hostingowym
 
-2. Zmieniamy prefix bazy danych z `wp_` na coś innego
+2. Zmieniamy prefix bazy danych z `wp_` na coś innego ( `$table_prefix = 'wp_';` ).
+
+3. W phpMyAdmin zmieniamy prefixy tabel.
+
 
 ### 7. Dodatkowe Zabezpieczenia
 
