@@ -10,3 +10,5 @@ https://127.0.0.1:8888/phpMyAdmin/
 
 ssh -i /location_to_private_key -L 8888:127.0.0.1:443 bitnami@AWS_SERVER_IP_ADDRESS
 
+1. Podmiana adresów po zmianie domeny i z HTTP na HTTPS.
+2. Stworzenie Child Theme
