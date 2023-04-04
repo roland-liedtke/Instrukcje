@@ -76,7 +76,9 @@
   </summary>
   <ul>
     <li> To absolutna podstawa. W trybie debugowania wyświetlane są wszystkie możliwe komunikaty o błędach – łatwo więc wyłapać wszelkie niedociągnięcia i      pomyłki. Aby włączyć ten tryb należy w pliku wp-config.php zmienić następującą linię </li>
-    <pre> define('WP_DEBUG', true); </pre>
+    <pre>
+    define('WP_DEBUG', true);
+    </pre>
     Po zakończeniu prac nad stroną należy bezwzględnie wyłączyć tryb debugowania.
   </ul>
 </details> 
@@ -124,14 +126,18 @@
   </summary>
   <ul>
     <li> Szukamy poniższego fragmentu i kopiujemy do innego pliku – przykładowo `wp-config-data.php`: <li>
-    <pre>define('DB_NAME', 'moja_baza');
+    <pre>
+    define('DB_NAME', 'moja_baza');
     define('DB_USER', 'moj_user');
     define('DB_PASSWORD', 'moje_haslo');
     define('DB_HOST', 'moj_host');
     define('DB_CHARSET', 'utf8');
-    define('DB_COLLATE', ''); </pre>
+    define('DB_COLLATE', '');
+    </pre>
     <li> Następnie w pliku `wp-config.php` dodajemy: </li>
-    <pre> require_once "wp-config-data.php"; </pre>
+    <pre>
+    require_once "wp-config-data.php";
+    </pre>
   </ul>
 </details> 
 
@@ -141,7 +147,8 @@
   </summary>
   <ul>
     <li> W pliku `functions.php` dodajemy fragment: </li>
-    <pre>function remove_version_info() {
+    <pre>
+    function remove_version_info() {
     return '';
     } 
     add_filter('the_generator', 'remove_version_info');
