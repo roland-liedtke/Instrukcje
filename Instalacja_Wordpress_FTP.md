@@ -88,13 +88,13 @@ Po zakończeniu prac nad stroną należy bezwzględnie wyłączyć tryb debugowa
     - Zmień prefiks w pliku konfiguracyjnym wp-config.php z 'wp_' na coś innego ( $table_prefix = 'wp_'; ).<br>
     - Zmień prefiks tabel bazy danych w phpMyAdmin.<br>
     - Zmień wartości wybranych opcji w tabeli bazy danych ( wp_options ):<br>
-    -- `wp_user_roles`,
-    -- `wp_user_roles`,
+    -- `wp_user_roles`,<br>
+    -- `wp_user_roles`,<br>
     - Zmień wartości wybranych opcji w tabeli bazy danych ( wp_usermeta ):<br>
-    -- `wp_capabilities`,
-    -- `wp_user_level`,
-    -- `wp_user-settings`,
-    -- `wp_dashboard_quick_press_last_post_id`,
+    -- `wp_capabilities`,<br>
+    -- `wp_user_level`,<br>
+    -- `wp_user-settings`,<br>
+    -- `wp_dashboard_quick_press_last_post_id`,<br>
     -- `wp_user-settings-time`.
   </p>
 </details> 
