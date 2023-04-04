@@ -1,54 +1,124 @@
 # Instalacja WordPress przez FTP ( File Transfer Protocol )
 
-### 1. Potrzebny będzie nam klient FTP
-- (np. FileZilla - MacOS, WinSCP - Windows)
-  
-### 2. Ogarniamy dane do FTP
-- (host, login, hasło, protokół i port (dwa ostatnie to najczęściej FTP / 21)
-  
-### 3. Pobieramy pliki WordPress
-- ( https://pl.wordpress.org/download/ )
-  
-### 4. Rozpakowujemy zip lokalnie i wrzucamy pliki na serwer
-  
-### 5. Tworzymy bazę danych w panelu hostingu
-- ( nazwa bazy, nazwa użytkownika, hasło ) <br>
-`UWAGA:` Pamiętaj by dać jakieś mało oczywiste hasło i nazwę użytkownika
-  
-### 6. Uzupełniamy WP-CONFIG
-1. Włączenie trybu debugowania. To absolutna podstawa. W trybie debugowania wyświetlane są wszystkie możliwe komunikaty o błędach – łatwo więc wyłapać wszelkie niedociągnięcia i pomyłki. Aby włączyć ten tryb należy w pliku wp-config.php zmienić następującą linię
+### 1. Pierwsza instalacja
+
+<details>
+  <summary>
+    Wybierz klienta FTP
+  </summary>
+  <p>
+    (np. FileZilla - MacOS, WinSCP - Windows)
+  </p>
+</details>
+
+<details>
+  <summary>
+    Uzyskaj dane do FTP
+  </summary>
+  <p>
+    (host, login, hasło, protokół i port (dwa ostatnie to najczęściej FTP / 21)
+  </p>
+</details>
+
+<details>
+  <summary>
+    Pobierz pliki WordPress
+  </summary>
+  <p>
+    ( https://pl.wordpress.org/download/ )
+  </p>
+</details>
+
+<details>
+  <summary>
+    Rozpakuj zip lokalnie i wrzuć pliki na serwer
+  </summary>
+  <p>
+    Wrzuć zawartość katalogu wordpress do głównego katalogu (example.pl), lub podkatalogu (example.pl/wordpress).
+  </p>
+</details>  
+
+<details>
+  <summary>
+    Utwórz bazę danych w panelu hostingu
+  </summary>
+  <p>
+    ( nazwa bazy, nazwa użytkownika, hasło ) <br>
+    <strong>UWAGA:</strong> Pamiętaj by dać jakieś mało oczywiste hasło i nazwę użytkownika  </p>
+</details>  
+
+### 2. Konfiguracja wp-config.php
+
+<details>
+  <summary>
+    Znajdź wp-config-sample.php i zamień nazwę na wp-config.php.
+  </summary>
+  <p>
+    Otwieramy plik w edytorze tekstowym i wpisujemy to co udało się stworzyć w panelu hostingowym tworząc bazę danych.<br>
+    ( name, user, password, host, charset )
+  </p>
+</details> 
+
+<details>
+  <summary>
+    Włącz tryb debugowania
+  </summary>
+  <p>
+    To absolutna podstawa. W trybie debugowania wyświetlane są wszystkie możliwe komunikaty o błędach – łatwo więc wyłapać wszelkie niedociągnięcia i pomyłki. Aby włączyć ten tryb należy w pliku wp-config.php zmienić następującą linię
 <pre>define('WP_DEBUG', true);</pre>
 Po zakończeniu prac nad stroną należy bezwzględnie wyłączyć tryb debugowania.
+  </p>
+</details> 
 
-2. Na serwerze szukamy `wp-config-sample.php` i zmieniamy nazwę na `wp-config.php`. Otwieramy plik w edytorze tekstowym i wpisujemy to co udało się wyczarować w panelu hostingowym.
+<details>
+  <summary>
+    Zmień prefiks tabel
+  </summary>
+  <p>
+    - Zmień prefiks w pliku konfiguracyjnym wp-config.php z 'wp_' na coś innego ( $table_prefix = 'wp_'; ).<br>
+    - Zmień prefiks tabel bazy danych w phpMyAdmin.<br>
+    - Zmień wartości wybranych opcji w tabeli bazy danych ( wp_options ):<br>
+    -- `wp_user_roles`,
+    -- `wp_user_roles`,
+    - Zmień wartości wybranych opcji w tabeli bazy danych ( wp_usermeta ):<br>
+    -- `wp_capabilities`,
+    -- `wp_user_level`,
+    -- `wp_user-settings`,
+    -- `wp_dashboard_quick_press_last_post_id`,
+    -- `wp_user-settings-time`.
+  </p>
+</details> 
 
-3. Zmieniamy prefiks w pliku konfiguracyjnym `wp-config.php` na serwerze FTP z `wp_` na coś innego ( `$table_prefix = 'wp_';` ).
+<details>
+  <summary>
+    Wygeneruj własne klucze zabezpieczające
+  </summary>
+  <p>
+    Generujemy własne klucze zabezpieczające dane przechowywane w ciasteczkach. <br>
+    ( Własne klucze można wygenerować tutaj: https://api.wordpress.org/secret-key/1.1/salt/ )
+  </p>
+</details> 
 
-4. Zmieniamy prefiks tabel bazy danych w phpMyAdmin.
+<details>
+  <summary>
+    Ukryj błędy na stronie
+  </summary>
+  <p>
+    Ukrywamy błędy ( w pliku `wp-config.php` ). Szukamy teraz:
+  <pre>define('WP_DEBUG', false); </pre>
+  i zamieniamy ten fragment na:
+  <pre>define('WP_DEBUG', false);
+  if ( ! WP_DEBUG ) {
+  ini_set('display_errors', 0);
+  }
+  </pre>
+  </p>
+</details> 
 
-5. Zmieniamy wartości wybranych opcji w tabeli bazy danych ( `wp_options` ):
-- `wp_user_roles`,
-
-6. Zmieniamy wartości wybranych opcji w tabeli bazy danych ( `wp_usermeta` ):
-- `wp_capabilities`,
-- `wp_user_level`,
-- `wp_user-settings`,
-- `wp_dashboard_quick_press_last_post_id`,
-- `wp_user-settings-time`.
 
 ### 7. Dodatkowe Zabezpieczenia
 
 1. Instalujemy certyfikat SSL
-
-2. Generujemy własne klucze zabezpieczające dane przechowywane w ciasteczkach ( Własne klucze można wygenerować tutaj: https://api.wordpress.org/secret-key/1.1/salt/ )
-
-3. Ukrywamy błędy ( w pliku `wp-config.php` ). Szukamy teraz:
-<pre>define('WP_DEBUG', false); </pre>
-i zamieniamy ten fragment na:
-<pre>define('WP_DEBUG', false);
-if ( ! WP_DEBUG ) {
-ini_set('display_errors', 0);
-} </pre>
 
 4. Przenosimy dane bazy. Szukamy poniższego fragmentu i kopiujemy do innego pliku – przykładowo `wp-config-data.php`
 <pre>define('DB_NAME', 'moja_baza');
