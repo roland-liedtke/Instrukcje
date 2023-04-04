@@ -75,11 +75,11 @@
     Włącz tryb debugowania
   </summary>
   <ul>
-    <li> To absolutna podstawa. W trybie debugowania wyświetlane są wszystkie możliwe komunikaty o błędach – łatwo więc wyłapać wszelkie niedociągnięcia i      pomyłki. Aby włączyć ten tryb należy w pliku wp-config.php zmienić następującą linię </li>
+    <li> To absolutna podstawa. W trybie debugowania wyświetlane są wszystkie możliwe komunikaty o błędach – łatwo więc wyłapać wszelkie niedociągnięcia i      pomyłki. Aby włączyć ten tryb należy w pliku wp-config.php zmienić następującą linię 
     <pre>
     define('WP_DEBUG', true);
     </pre>
-    Po zakończeniu prac nad stroną należy bezwzględnie wyłączyć tryb debugowania.
+    Po zakończeniu prac nad stroną należy bezwzględnie wyłączyć tryb debugowania. </li>
   </ul>
 </details> 
 
@@ -134,7 +134,7 @@
     define('DB_CHARSET', 'utf8');
     define('DB_COLLATE', '');
     </pre>
-    <li> Następnie w pliku `wp-config.php` dodajemy: </li>
+    <li> Następnie w pliku wp-config.php dodajemy: </li>
     <pre>
     require_once "wp-config-data.php";
     </pre>
@@ -146,7 +146,7 @@
     Usuń informacje o wersji wordpressa
   </summary>
   <ul>
-    <li> W pliku `functions.php` dodajemy fragment: </li>
+    <li> W pliku functions.php dodajemy fragment: </li>
     <pre>
     function remove_version_info() {
     return '';
@@ -163,120 +163,119 @@
   <summary>
     Wyłącz tryb debugowania i ukryj błędy na stronie
   </summary>
-  <p>
-    Po zakończeniu prac nad stroną należy bezwzględnie wyłączyć tryb debugowania.
-<pre>define('WP_DEBUG', true);</pre>
-    Ukrywamy błędy ( w pliku `wp-config.php` ). Szukamy teraz:
-  <pre>define('WP_DEBUG', false); </pre>
-  i zamieniamy ten fragment na:
-  <pre>define('WP_DEBUG', false);
-  if ( ! WP_DEBUG ) {
-  ini_set('display_errors', 0);
-  }
-  </pre>
-  </p>
+  <ul>
+    <li> Po zakończeniu prac nad stroną należy bezwzględnie wyłączyć tryb debugowania. </li>
+      <pre>
+      define('WP_DEBUG', false);
+      if ( ! WP_DEBUG ) {
+      ini_set('display_errors', 0);
+      }
+      </pre>
+  </ul>
 </details> 
 
 <details>
   <summary>
     Wyłącz edycję plików bezpośrednio przez panel admina.
   </summary>
-  <p>
-     Wyłączamy możliwość edycji plików motywu i wtyczek bezpośrednio przez panel WordPress. W pliku `wp-config.php` dopisując do niego fragment:
-<pre>define('DISALLOW_FILE_EDIT', true); </pre>
-  </p>
+  <ul>
+    <li> Wyłączamy możliwość edycji plików motywu i wtyczek bezpośrednio przez panel WordPress. W pliku wp-config.php dopisując do niego fragment: </li>
+    <pre>
+    define('DISALLOW_FILE_EDIT', true);
+    </pre>
+  </ul>
 </details>
 
 <details>
   <summary>
     Zablokuj dostęp do pliku wp-login.php
   </summary>
-  <p>
-     Najprostsza metoda zabezpieczenia tegoż pliku to dodanie w `.htaccess` takie cuda:
-```
-<IfModule mod_rewrite.c>
-RewriteEngine On
-RewriteCond %{REQUEST_METHOD} POST
-RewriteCond %{HTTP_REFERER} !^http://(.*)?.nasza-domena.pl [NC]
-RewriteCond %{REQUEST_URI} ^/wp-login\.php(.*)$
-RewriteRule ^(.*)$ - [R=403,L]
-</IfModule>
-```
-  </p>
+  <ul>
+    <li> Najprostsza metoda zabezpieczenia tegoż pliku to dodanie w '.htaccess' takie cuda: </li>
+    <pre>
+    <IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{REQUEST_METHOD} POST
+    RewriteCond %{HTTP_REFERER} !^http://(.*)?.nasza-domena.pl [NC]
+    RewriteCond %{REQUEST_URI} ^/wp-login\.php(.*)$
+    RewriteRule ^(.*)$ - [R=403,L]
+    </IfModule>
+    </pre>
+  </ul>
 </details>
 
 <details>
   <summary>
     Zablokuj dostęp do pliku xmlrpc.php
   </summary>
-  <p>
-     Plik ten jest drugim w kolejności, który jest najczęściej atakowany (pierwszy to wp-login.php). Jeśli nie korzysta się z interfejsu XML-RPC to można go całkowicie zablokować dodając w `.htaccess`:
-```
-<files xmlrpc.php>
-order deny,allow
-deny from all
-</files>
-```
-  </p>
+  <ul>
+    <li> Plik ten jest drugim w kolejności, który jest najczęściej atakowany (pierwszy to wp-login.php). Jeśli nie korzysta się z interfejsu XML-RPC to można go całkowicie zablokować dodając w '.htaccess': </li>
+    <pre>
+    <files xmlrpc.php>
+    order deny,allow
+    deny from all
+    </files>
+    </pre>
+  </ul>
 </details>
 
 <details>
   <summary>
     Zablokuj dostęp do kolejnych plików
   </summary>
-  <p>
-     Są pliki, do których NIKT NIGDY nie powinien mieć dostępu. Należy wpisać w pliku `.htaccess`:
-```
-<FilesMatch "wp-config.*\.php|\.htaccess|readme\.html">
-Order allow,deny
-Deny from all
-</FilesMatch>
-```
-  </p>
+  <ul>
+    <li> Są pliki, do których NIKT NIGDY nie powinien mieć dostępu. Należy wpisać w pliku '.htaccess': </li>
+    <pre>
+    <FilesMatch "wp-config.*\.php|\.htaccess|readme\.html">
+    Order allow,deny
+    Deny from all
+    </FilesMatch>
+    </pre>
+  </ul>
 </details>
 
 <details>
   <summary>
     Włącz zabezpieczenie dla wp-includes
   </summary>
-  <p>
-     W katalogu `wp-includes` tworzymy plik `.htaccess` i dodajemy do niego:
-```
-<FilesMatch "\.(?i:php)$">
-Order allow,deny
-Deny from all
-</FilesMatch>
-<Files wp-tinymce.php>
-Allow from all
-</Files>
-<Files ms-files.php>
-Allow from all
-</Files>
-```
-  </p>
+  <ul>
+    <li> W katalogu wp-includes tworzymy plik '.htaccess' i dodajemy do niego: </li>
+    <pre>
+    <FilesMatch "\.(?i:php)$">
+    Order allow,deny
+    Deny from all
+    </FilesMatch>
+    <Files wp-tinymce.php>
+    Allow from all
+    </Files>
+    <Files ms-files.php>
+    Allow from all
+    </Files>
+    </pre>
+  </ul>
 </details>
 
 <details>
   <summary>
     Sprawdź uprawnienia do katalogów
   </summary>
-  <p>
-     Jeśli nic nie grzebaliście w uprawnieniach to nie powinno być tutaj nic do zrobienia. Standardowy schemat uprawnień wygląda mniej więcej tak:
-<pre>katalog główny / – 644
+  <ul>
+    <li> Standardowy schemat uprawnień wygląda mniej więcej tak: </li>
+    <pre>katalog główny / – 644
 /wp-admin – 644
 /wp-includes – 644
-/wp-content/uploads – 755</pre>
+/wp-content/uploads – 755
 Plik `.htaccess` powinien mieć uprawnienia 644.
-  </p>
+  </ul>
 </details>
 
 <details>
   <summary>
     Wyłączamy możliwość rejestracji przypadkowych osobników
   </summary>
-  <p>
-     ( Ustawienia / Ogólne / Członkostwo )
-  </p>
+  <ul>
+    <li> ( Ustawienia / Ogólne / Członkostwo ) </li>
+  </ul>
 </details>
 
 ### EXTRA:
