@@ -7,7 +7,7 @@
     Wybierz klienta FTP
   </summary>
   <p>
-    (np. FileZilla - MacOS, WinSCP - Windows)
+    ( np. FileZilla - MacOS, WinSCP - Windows )
   </p>
 </details>
 
@@ -16,7 +16,7 @@
     Uzyskaj dane do FTP
   </summary>
   <p>
-    (host, login, hasło, protokół i port (dwa ostatnie to najczęściej FTP / 21)
+    (host, login, hasło, protokół i port (dwa ostatnie to najczęściej FTP / 21))
   </p>
 </details>
 
@@ -84,18 +84,24 @@ Po zakończeniu prac nad stroną należy bezwzględnie wyłączyć tryb debugowa
   <summary>
     Zmień prefiks tabel
   </summary>
-  <p>
-    - Zmień prefiks w pliku konfiguracyjnym wp-config.php z 'wp_' na coś innego ( $table_prefix = 'wp_'; ).<br>
-    - Zmień prefiks tabel bazy danych w phpMyAdmin.<br>
-    - Zmień wartości wybranych opcji w tabeli bazy danych ( wp_options ):<br>
-    -- `wp_user_roles`,<br>
-    -- `wp_user_roles`,<br>
-    - Zmień wartości wybranych opcji w tabeli bazy danych ( wp_usermeta ):<br>
-    -- `wp_capabilities`,<br>
-    -- `wp_user_level`,<br>
-    -- `wp_user-settings`,<br>
-    -- `wp_dashboard_quick_press_last_post_id`,<br>
-    -- `wp_user-settings-time`.
+  <ul>
+    <li> Zmień prefiks w pliku konfiguracyjnym wp-config.php z 'wp_' na coś innego ( $table_prefix = 'wp_'; ).</li>
+    <li> Zmień prefiks tabel bazy danych w phpMyAdmin. </li>
+    <li> Zmień wartości wybranych opcji w tabeli bazy danych ( wp_options ):
+      <ul>
+        <li> wp_user_roles </li>
+        <li> wp_user_roles </li>
+      </ul>
+    </li>
+    <li> Zmień wartości wybranych opcji w tabeli bazy danych ( wp_usermeta ):
+      <ul>
+        <li> wp_capabilities </li>
+        <li> wp_user_level </li>
+        <li> wp_user-settings </li>
+        <li> wp_dashboard_quick_press_last_post_id </li>
+        <li> wp_user-settings-time </li>
+      </ul>
+    </li>
   </p>
 </details> 
 
