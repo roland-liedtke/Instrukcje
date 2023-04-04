@@ -6,45 +6,46 @@
   <summary>
     Wybierz klienta FTP
   </summary>
-  <p>
-    ( np. FileZilla - MacOS, WinSCP - Windows )
-  </p>
+  <ul>
+    <li> ( np. FileZilla - MacOS, WinSCP - Windows ) </li>
+  </ul>
 </details>
 
 <details>
   <summary>
     Uzyskaj dane do FTP
   </summary>
-  <p>
-    (host, login, hasło, protokół i port (dwa ostatnie to najczęściej FTP / 21))
-  </p>
+  <ul>
+    <li> (host, login, hasło, protokół i port (dwa ostatnie to najczęściej FTP / 21)) </li>
+  </ul>
 </details>
 
 <details>
   <summary>
     Pobierz pliki WordPress
   </summary>
-  <p>
-    ( https://pl.wordpress.org/download/ )
-  </p>
+  <ul>
+    <li> ( https://pl.wordpress.org/download/ ) </li>
+  </ul>
 </details>
 
 <details>
   <summary>
     Rozpakuj zip lokalnie i wrzuć pliki na serwer
   </summary>
-  <p>
-    Wrzuć zawartość katalogu wordpress do głównego katalogu (example.pl), lub podkatalogu (example.pl/wordpress).
-  </p>
+  <ul>
+    <li> Wrzuć zawartość katalogu wordpress do głównego katalogu (example.pl), lub podkatalogu (example.pl/wordpress). </li>
+  </ul>
 </details>  
 
 <details>
   <summary>
     Utwórz bazę danych w panelu hostingu
   </summary>
-  <p>
-    ( nazwa bazy, nazwa użytkownika, hasło ) <br>
-    <strong>UWAGA:</strong> Pamiętaj by dać jakieś mało oczywiste hasło i nazwę użytkownika  </p>
+  <ul>
+    <li> ( nazwa bazy, nazwa użytkownika, hasło ) </li>
+    <strong>UWAGA:</strong> Pamiętaj by dać jakieś mało oczywiste hasło i nazwę użytkownika  
+  </ul>
 </details>
 
 ## 2. Konfiguracja wp-config.php
@@ -53,31 +54,31 @@
   <summary>
     Znajdź wp-config-sample.php i zamień nazwę na wp-config.php.
   </summary>
-  <p>
-    Otwieramy plik w edytorze tekstowym i wpisujemy to co udało się stworzyć w panelu hostingowym tworząc bazę danych.<br>
+  <ul>
+    <li> Otwieramy plik w edytorze tekstowym i wpisujemy to co udało się stworzyć w panelu hostingowym tworząc bazę danych. </li>
     ( name, user, password, host, charset )
-  </p>
+  </ul>
 </details>
 
 <details>
   <summary>
     Wygeneruj własne klucze zabezpieczające
   </summary>
-  <p>
-    Generujemy własne klucze zabezpieczające dane przechowywane w ciasteczkach. <br>
+  <ul>
+    <li> Generujemy własne klucze zabezpieczające dane przechowywane w ciasteczkach. </li>
     ( Własne klucze można wygenerować tutaj: https://api.wordpress.org/secret-key/1.1/salt/ )
-  </p>
+  </ul>
 </details> 
 
 <details>
   <summary>
     Włącz tryb debugowania
   </summary>
-  <p>
-    To absolutna podstawa. W trybie debugowania wyświetlane są wszystkie możliwe komunikaty o błędach – łatwo więc wyłapać wszelkie niedociągnięcia i pomyłki. Aby włączyć ten tryb należy w pliku wp-config.php zmienić następującą linię
-<pre>define('WP_DEBUG', true);</pre>
-Po zakończeniu prac nad stroną należy bezwzględnie wyłączyć tryb debugowania.
-  </p>
+  <ul>
+    <li> To absolutna podstawa. W trybie debugowania wyświetlane są wszystkie możliwe komunikaty o błędach – łatwo więc wyłapać wszelkie niedociągnięcia i      pomyłki. Aby włączyć ten tryb należy w pliku wp-config.php zmienić następującą linię </li>
+    <pre> define('WP_DEBUG', true); </pre>
+    Po zakończeniu prac nad stroną należy bezwzględnie wyłączyć tryb debugowania.
+  </ul>
 </details> 
 
 <details>
