@@ -16,16 +16,20 @@
 `UWAGA:` Pamiętaj by dać jakieś mało oczywiste hasło i nazwę użytkownika
   
 ### 6. Uzupełniamy WP-CONFIG
-1. Na serwerze szukamy `wp-config-sample.php` i zmieniamy nazwę na `wp-config.php`. Otwieramy plik w edytorze tekstowym i wpisujemy to co udało się wyczarować w panelu hostingowym.
+1. Włączenie trybu debugowania. To absolutna podstawa. W trybie debugowania wyświetlane są wszystkie możliwe komunikaty o błędach – łatwo więc wyłapać wszelkie niedociągnięcia i pomyłki. Aby włączyć ten tryb należy w pliku wp-config.php zmienić następującą linię
+<pre>define('WP_DEBUG', true);</pre>
+Po zakończeniu prac nad stroną należy bezwzględnie wyłączyć tryb debugowania.
 
-2. Zmieniamy prefiks w pliku konfiguracyjnym `wp-config.php` na serwerze FTP z `wp_` na coś innego ( `$table_prefix = 'wp_';` ).
+2. Na serwerze szukamy `wp-config-sample.php` i zmieniamy nazwę na `wp-config.php`. Otwieramy plik w edytorze tekstowym i wpisujemy to co udało się wyczarować w panelu hostingowym.
 
-3. Zmieniamy prefiks tabel bazy danych w phpMyAdmin.
+3. Zmieniamy prefiks w pliku konfiguracyjnym `wp-config.php` na serwerze FTP z `wp_` na coś innego ( `$table_prefix = 'wp_';` ).
 
-4. Zmieniamy wartości wybranych opcji w tabeli bazy danych ( `wp_options` ):
+4. Zmieniamy prefiks tabel bazy danych w phpMyAdmin.
+
+5. Zmieniamy wartości wybranych opcji w tabeli bazy danych ( `wp_options` ):
 - `wp_user_roles`,
 
-5. Zmieniamy wartości wybranych opcji w tabeli bazy danych ( `wp_usermeta` ):
+6. Zmieniamy wartości wybranych opcji w tabeli bazy danych ( `wp_usermeta` ):
 - `wp_capabilities`,
 - `wp_user_level`,
 - `wp_user-settings`,
