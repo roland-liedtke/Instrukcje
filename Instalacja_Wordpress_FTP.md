@@ -1,6 +1,6 @@
 # Instalacja WordPress przez FTP ( File Transfer Protocol )
 
-### 1. Pierwsza instalacja
+## 1. Pierwsza instalacja
 
 <details>
   <summary>
@@ -47,7 +47,7 @@
     <strong>UWAGA:</strong> Pamiętaj by dać jakieś mało oczywiste hasło i nazwę użytkownika  </p>
 </details>
 
-### 2. Konfiguracja wp-config.php
+## 2. Konfiguracja wp-config.php
 
 <details>
   <summary>
@@ -100,7 +100,7 @@ Po zakończeniu prac nad stroną należy bezwzględnie wyłączyć tryb debugowa
 </details> 
 
 
-### 3. Dodatkowe Zabezpieczenia
+## 3. Dodatkowe Zabezpieczenia
 
 <details>
   <summary>
@@ -143,7 +143,7 @@ remove_action('wp_head', 'wp_generator');
   </p>
 </details>
 
-### 4. Na koniec
+## 4. Na koniec
 
 <details>
   <summary>
