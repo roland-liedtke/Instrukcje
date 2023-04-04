@@ -114,7 +114,7 @@
     Zainstaluj certyfikat SSL
   </summary>
   <p>
-    -
+    UZUPEŁNIJ
   </p>
 </details>
 
@@ -122,32 +122,32 @@
   <summary>
     Przenieś ustawienia bazy danych do oddzielnego pliku
   </summary>
-  <p>
-    Szukamy poniższego fragmentu i kopiujemy do innego pliku – przykładowo `wp-config-data.php`:<br>
-<pre>define('DB_NAME', 'moja_baza');
-define('DB_USER', 'moj_user');
-define('DB_PASSWORD', 'moje_haslo');
-define('DB_HOST', 'moj_host');
-define('DB_CHARSET', 'utf8');
-define('DB_COLLATE', ''); </pre>
-    Następnie w pliku `wp-config.php` dodajemy:<br>
-<pre>require_once "wp-config-data.php"; </pre>
-  </p>
+  <ul>
+    <li> Szukamy poniższego fragmentu i kopiujemy do innego pliku – przykładowo `wp-config-data.php`: <li>
+    <pre>define('DB_NAME', 'moja_baza');
+    define('DB_USER', 'moj_user');
+    define('DB_PASSWORD', 'moje_haslo');
+    define('DB_HOST', 'moj_host');
+    define('DB_CHARSET', 'utf8');
+    define('DB_COLLATE', ''); </pre>
+    <li> Następnie w pliku `wp-config.php` dodajemy: </li>
+    <pre> require_once "wp-config-data.php"; </pre>
+  </ul>
 </details> 
 
 <details>
   <summary>
     Usuń informacje o wersji wordpressa
   </summary>
-  <p>
-    W pliku `functions.php` dodajemy fragment: <br>
-<pre>function remove_version_info() {
-return '';
-} 
-add_filter('the_generator', 'remove_version_info');
-remove_action('wp_head', 'wp_generator');
-</pre>
-  </p>
+  <ul>
+    <li> W pliku `functions.php` dodajemy fragment: </li>
+    <pre>function remove_version_info() {
+    return '';
+    } 
+    add_filter('the_generator', 'remove_version_info');
+    remove_action('wp_head', 'wp_generator');
+    </pre>
+  </ul>
 </details>
 
 ## 4. Na koniec
