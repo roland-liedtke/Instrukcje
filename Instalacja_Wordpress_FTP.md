@@ -45,7 +45,7 @@
   <p>
     ( nazwa bazy, nazwa użytkownika, hasło ) <br>
     <strong>UWAGA:</strong> Pamiętaj by dać jakieś mało oczywiste hasło i nazwę użytkownika  </p>
-</details>  
+</details>
 
 ### 2. Konfiguracja wp-config.php
 
@@ -56,6 +56,16 @@
   <p>
     Otwieramy plik w edytorze tekstowym i wpisujemy to co udało się stworzyć w panelu hostingowym tworząc bazę danych.<br>
     ( name, user, password, host, charset )
+  </p>
+</details>
+
+<details>
+  <summary>
+    Wygeneruj własne klucze zabezpieczające
+  </summary>
+  <p>
+    Generujemy własne klucze zabezpieczające dane przechowywane w ciasteczkach. <br>
+    ( Własne klucze można wygenerować tutaj: https://api.wordpress.org/secret-key/1.1/salt/ )
   </p>
 </details> 
 
@@ -89,21 +99,59 @@ Po zakończeniu prac nad stroną należy bezwzględnie wyłączyć tryb debugowa
   </p>
 </details> 
 
+
+### 3. Dodatkowe Zabezpieczenia
+
 <details>
   <summary>
-    Wygeneruj własne klucze zabezpieczające
+    Zainstaluj certyfikat SSL
   </summary>
   <p>
-    Generujemy własne klucze zabezpieczające dane przechowywane w ciasteczkach. <br>
-    ( Własne klucze można wygenerować tutaj: https://api.wordpress.org/secret-key/1.1/salt/ )
+    -
+  </p>
+</details>
+
+<details>
+  <summary>
+    Przenieś ustawienia bazy danych do oddzielnego pliku
+  </summary>
+  <p>
+    Szukamy poniższego fragmentu i kopiujemy do innego pliku – przykładowo `wp-config-data.php`:<br>
+<pre>define('DB_NAME', 'moja_baza');
+define('DB_USER', 'moj_user');
+define('DB_PASSWORD', 'moje_haslo');
+define('DB_HOST', 'moj_host');
+define('DB_CHARSET', 'utf8');
+define('DB_COLLATE', ''); </pre>
+    Następnie w pliku `wp-config.php` dodajemy:<br>
+<pre>require_once "wp-config-data.php"; </pre>
   </p>
 </details> 
 
 <details>
   <summary>
-    Ukryj błędy na stronie
+    Usuń informacje o wersji wordpressa
   </summary>
   <p>
+    W pliku `functions.php` dodajemy fragment: <br>
+<pre>function remove_version_info() {
+return '';
+} 
+add_filter('the_generator', 'remove_version_info');
+remove_action('wp_head', 'wp_generator');
+</pre>
+  </p>
+</details>
+
+### 4. Na koniec
+
+<details>
+  <summary>
+    Wyłącz tryb debugowania i ukryj błędy na stronie
+  </summary>
+  <p>
+    Po zakończeniu prac nad stroną należy bezwzględnie wyłączyć tryb debugowania.
+<pre>define('WP_DEBUG', true);</pre>
     Ukrywamy błędy ( w pliku `wp-config.php` ). Szukamy teraz:
   <pre>define('WP_DEBUG', false); </pre>
   i zamieniamy ten fragment na:
@@ -115,30 +163,22 @@ Po zakończeniu prac nad stroną należy bezwzględnie wyłączyć tryb debugowa
   </p>
 </details> 
 
-
-### 7. Dodatkowe Zabezpieczenia
-
-1. Instalujemy certyfikat SSL
-
-4. Przenosimy dane bazy. Szukamy poniższego fragmentu i kopiujemy do innego pliku – przykładowo `wp-config-data.php`
-<pre>define('DB_NAME', 'moja_baza');
-define('DB_USER', 'moj_user');
-define('DB_PASSWORD', 'moje_haslo');
-define('DB_HOST', 'moj_host');
-define('DB_CHARSET', 'utf8');
-define('DB_COLLATE', ''); </pre>
-
-5. Następnie w pliku `wp-config.php` dodajemy:
-<pre>require_once "wp-config-data.php"; </pre>
-
-6. Wyłączamy możliwość edycji plików motywu i wtyczek bezpośrednio przez panel WordPress. W pliku `wp-config.php` dopisując do niego fragment:
+<details>
+  <summary>
+    Wyłącz edycję plików bezpośrednio przez panel admina.
+  </summary>
+  <p>
+     Wyłączamy możliwość edycji plików motywu i wtyczek bezpośrednio przez panel WordPress. W pliku `wp-config.php` dopisując do niego fragment:
 <pre>define('DISALLOW_FILE_EDIT', true); </pre>
+  </p>
+</details>
 
-7. Usuwamy informacje o wersji wordpressa. W pliku `functions.php` dodajemy fragment:
-<pre>function remove_version_info() { return ''; } add_filter('the_generator', 'remove_version_info'); remove_action('wp_head', 'wp_generator');</pre>
-
-8. Blokujmy dostęp do pliku `wp-login.php`
-Najprostsza metoda zabezpieczenia tegoż pliku to dodanie w `.htaccess` takie cuda:
+<details>
+  <summary>
+    Zablokuj dostęp do pliku wp-login.php
+  </summary>
+  <p>
+     Najprostsza metoda zabezpieczenia tegoż pliku to dodanie w `.htaccess` takie cuda:
 ```
 <IfModule mod_rewrite.c>
 RewriteEngine On
@@ -148,28 +188,45 @@ RewriteCond %{REQUEST_URI} ^/wp-login\.php(.*)$
 RewriteRule ^(.*)$ - [R=403,L]
 </IfModule>
 ```
+  </p>
+</details>
 
-9. Blokujemy dostęp do pliku `xmlrpc.php`
-Plik ten jest drugim w kolejności, który jest najczęściej atakowany (pierwszy to wp-login.php). Jeśli nie korzysta się z interfejsu XML-RPC to można go całkowicie zablokować dodając w `.htaccess`:
+<details>
+  <summary>
+    Zablokuj dostęp do pliku xmlrpc.php
+  </summary>
+  <p>
+     Plik ten jest drugim w kolejności, który jest najczęściej atakowany (pierwszy to wp-login.php). Jeśli nie korzysta się z interfejsu XML-RPC to można go całkowicie zablokować dodając w `.htaccess`:
 ```
 <files xmlrpc.php>
 order deny,allow
 deny from all
 </files>
 ```
+  </p>
+</details>
 
-10. Blokujemy dostęp do kolejnych plików
-Są pliki, do których NIKT NIGDY nie powinien mieć dostępu. Należy wpisać w pliku `.htaccess`:
+<details>
+  <summary>
+    Zablokuj dostęp do kolejnych plików
+  </summary>
+  <p>
+     Są pliki, do których NIKT NIGDY nie powinien mieć dostępu. Należy wpisać w pliku `.htaccess`:
 ```
 <FilesMatch "wp-config.*\.php|\.htaccess|readme\.html">
 Order allow,deny
 Deny from all
 </FilesMatch>
 ```
-Plik `.htaccess` powinien mieć uprawnienia 644.
+  </p>
+</details>
 
-11. Włączamy zabezpieczenia dla `wp-includes`
-W katalogu `wp-includes` tworzymy plik `.htaccess` i dodajemy do niego:
+<details>
+  <summary>
+    Włącz zabezpieczenie dla wp-includes
+  </summary>
+  <p>
+     W katalogu `wp-includes` tworzymy plik `.htaccess` i dodajemy do niego:
 ```
 <FilesMatch "\.(?i:php)$">
 Order allow,deny
@@ -182,18 +239,31 @@ Allow from all
 Allow from all
 </Files>
 ```
+  </p>
+</details>
 
-12. Sprawdzamy uprawnienia do katalogów
-Jeśli nic nie grzebaliście w uprawnieniach to nie powinno być tutaj nic do zrobienia. Standardowy schemat uprawnień wygląda mniej więcej tak:
+<details>
+  <summary>
+    Sprawdź uprawnienia do katalogów
+  </summary>
+  <p>
+     Jeśli nic nie grzebaliście w uprawnieniach to nie powinno być tutaj nic do zrobienia. Standardowy schemat uprawnień wygląda mniej więcej tak:
 <pre>katalog główny / – 644
 /wp-admin – 644
 /wp-includes – 644
 /wp-content/uploads – 755</pre>
+Plik `.htaccess` powinien mieć uprawnienia 644.
+  </p>
+</details>
 
-13. Wyłączamy możliwość rejestracji przypadkowych osobników ( Ustawienia / Ogólne / Członkostwo )
-
-### 8. Instalujemy WP
-`UWAGA:` Jeśli macie podpięty na hostingu SSL to warto przy instalacji podać adres z `https://`
+<details>
+  <summary>
+    Wyłączamy możliwość rejestracji przypadkowych osobników
+  </summary>
+  <p>
+     ( Ustawienia / Ogólne / Członkostwo )
+  </p>
+</details>
 
 ### EXTRA:
 - Aktualizujmy motywy, wtyczki i wordpressa <br>
