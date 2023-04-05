@@ -138,12 +138,10 @@
     define('DB_PASSWORD', 'moje_haslo');
     define('DB_HOST', 'moj_host');
     define('DB_CHARSET', 'utf8');
-    define('DB_COLLATE', '');
-    </pre>
+    define('DB_COLLATE', '');</pre>
     <li> Następnie w pliku wp-config.php dodajemy: </li>
     <pre>
-    require_once "wp-config-data.php";
-    </pre>
+    require_once "wp-config-data.php";</pre>
   </ul>
 </details> 
 
@@ -158,8 +156,7 @@
     return '';
     } 
     add_filter('the_generator', 'remove_version_info');
-    remove_action('wp_head', 'wp_generator');
-    </pre>
+    remove_action('wp_head', 'wp_generator');</pre>
   </ul>
 </details>
 
