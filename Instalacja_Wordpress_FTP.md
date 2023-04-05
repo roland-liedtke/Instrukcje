@@ -84,7 +84,8 @@
     <li> To absolutna podstawa. W trybie debugowania wyświetlane są wszystkie możliwe komunikaty o błędach – łatwo więc wyłapać wszelkie niedociągnięcia i      pomyłki. Aby włączyć ten tryb należy w pliku wp-config.php zmienić następującą linię 
     <pre>
     define('WP_DEBUG', true);</pre>
-    Po zakończeniu prac nad stroną należy bezwzględnie wyłączyć tryb debugowania. </li>
+    </li>
+    <li> Po zakończeniu prac nad stroną należy bezwzględnie wyłączyć tryb debugowania. </li>
   </ul>
 </details> 
 
