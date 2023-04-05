@@ -7,7 +7,8 @@
     Wybierz klienta FTP
   </summary>
   <ul>
-    <li> ( np. FileZilla - MacOS, WinSCP - Windows ) </li>
+    <li> FileZilla - MacOS </li>
+    <li> WinSCP - Windows </li>
   </ul>
 </details>
 
@@ -16,7 +17,10 @@
     Uzyskaj dane do FTP
   </summary>
   <ul>
-    <li> (host, login, hasło, protokół i port (dwa ostatnie to najczęściej FTP / 21)) </li>
+    <li> host </li>
+    <li> login </li>
+    <li> hasło </li>
+    <li> protokół i port (najczęściej FTP / 21) </li>
   </ul>
 </details>
 
@@ -34,7 +38,7 @@
     Rozpakuj zip lokalnie i wrzuć pliki na serwer
   </summary>
   <ul>
-    <li> Wrzuć zawartość katalogu wordpress do głównego katalogu (example.pl), lub podkatalogu (example.pl/wordpress). </li>
+    <li> Wrzuć zawartość katalogu wordpress do głównego katalogu ( example.pl ), lub podkatalogu ( example.pl/wordpress ). </li>
   </ul>
 </details>  
 
@@ -43,7 +47,9 @@
     Utwórz bazę danych w panelu hostingu
   </summary>
   <ul>
-    <li> ( nazwa bazy, nazwa użytkownika, hasło ) </li>
+    <li> nazwa bazy </li>
+    <li> nazwa użytkownika </li>
+    <li> hasło </li>
     <strong>UWAGA:</strong> Pamiętaj by dać jakieś mało oczywiste hasło i nazwę użytkownika  
   </ul>
 </details>
@@ -77,8 +83,7 @@
   <ul>
     <li> To absolutna podstawa. W trybie debugowania wyświetlane są wszystkie możliwe komunikaty o błędach – łatwo więc wyłapać wszelkie niedociągnięcia i      pomyłki. Aby włączyć ten tryb należy w pliku wp-config.php zmienić następującą linię 
     <pre>
-    define('WP_DEBUG', true);
-    </pre>
+    define('WP_DEBUG', true);</pre>
     Po zakończeniu prac nad stroną należy bezwzględnie wyłączyć tryb debugowania. </li>
   </ul>
 </details> 
