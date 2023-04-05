@@ -172,8 +172,7 @@
       define('WP_DEBUG', false);
       if ( ! WP_DEBUG ) {
       ini_set('display_errors', 0);
-      }
-      </pre>
+      }</pre>
   </ul>
 </details> 
 
@@ -184,8 +183,7 @@
   <ul>
     <li> Wyłączamy możliwość edycji plików motywu i wtyczek bezpośrednio przez panel WordPress. W pliku wp-config.php dopisując do niego fragment: </li>
     <pre>
-    define('DISALLOW_FILE_EDIT', true);
-    </pre>
+    define('DISALLOW_FILE_EDIT', true);</pre>
   </ul>
 </details>
 
@@ -202,8 +200,7 @@
     RewriteCond %{HTTP_REFERER} !^http://(.*)?.nasza-domena.pl [NC]
     RewriteCond %{REQUEST_URI} ^/wp-login\.php(.*)$
     RewriteRule ^(.*)$ - [R=403,L]
-    </IfModule>
-    </pre>
+    </IfModule></pre>
   </ul>
 </details>
 
@@ -217,8 +214,7 @@
     <files xmlrpc.php>
     order deny,allow
     deny from all
-    </files>
-    </pre>
+    </files></pre>
   </ul>
 </details>
 
@@ -232,8 +228,7 @@
     <FilesMatch "wp-config.*\.php|\.htaccess|readme\.html">
     Order allow,deny
     Deny from all
-    </FilesMatch>
-    </pre>
+    </FilesMatch></pre>
   </ul>
 </details>
 
@@ -253,8 +248,7 @@
     </Files>
     <Files ms-files.php>
     Allow from all
-    </Files>
-    </pre>
+    </Files></pre>
   </ul>
 </details>
 
