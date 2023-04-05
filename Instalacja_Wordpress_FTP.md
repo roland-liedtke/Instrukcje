@@ -131,7 +131,7 @@
     Przenieś ustawienia bazy danych do oddzielnego pliku
   </summary>
   <ul>
-    <li> Szukamy poniższego fragmentu i kopiujemy do innego pliku – przykładowo `wp-config-data.php`: <li>
+    <li> Szukamy poniższego fragmentu i kopiujemy do innego pliku – przykładowo 'wp-config-data.php': </li>
     <pre>
     define('DB_NAME', 'moja_baza');
     define('DB_USER', 'moj_user');
