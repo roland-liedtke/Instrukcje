@@ -194,13 +194,13 @@
   <ul>
     <li> Najprostsza metoda zabezpieczenia tegoż pliku to dodanie w '.htaccess' takie cuda: </li>
     <pre>
-    <IfModule mod_rewrite.c>
+    &lt;IfModule mod_rewrite.c&gt;
     RewriteEngine On
     RewriteCond %{REQUEST_METHOD} POST
     RewriteCond %{HTTP_REFERER} !^http://(.*)?.nasza-domena.pl [NC]
     RewriteCond %{REQUEST_URI} ^/wp-login\.php(.*)$
     RewriteRule ^(.*)$ - [R=403,L]
-    </IfModule></pre>
+    &lt;/IfModule&gt;</pre>
   </ul>
 </details>
 
@@ -211,10 +211,10 @@
   <ul>
     <li> Plik ten jest drugim w kolejności, który jest najczęściej atakowany (pierwszy to wp-login.php). Jeśli nie korzysta się z interfejsu XML-RPC to można go całkowicie zablokować dodając w '.htaccess': </li>
     <pre>
-    <files xmlrpc.php>
+    &lt;files xmlrpc.php&gt;
     order deny,allow
     deny from all
-    </files></pre>
+    &lt;/files&gt;</pre>
   </ul>
 </details>
 
@@ -225,10 +225,10 @@
   <ul>
     <li> Są pliki, do których NIKT NIGDY nie powinien mieć dostępu. Należy wpisać w pliku '.htaccess': </li>
     <pre>
-    <FilesMatch "wp-config.*\.php|\.htaccess|readme\.html">
+    &lt;FilesMatch "wp-config.*\.php|\.htaccess|readme\.html"&gt;
     Order allow,deny
     Deny from all
-    </FilesMatch></pre>
+    &lt;/FilesMatch&gt;</pre>
   </ul>
 </details>
 
@@ -239,16 +239,16 @@
   <ul>
     <li> W katalogu wp-includes tworzymy plik '.htaccess' i dodajemy do niego: </li>
     <pre>
-    <FilesMatch "\.(?i:php)$">
+    &lt;FilesMatch "\.(?i:php)$"&gt;
     Order allow,deny
     Deny from all
-    </FilesMatch>
-    <Files wp-tinymce.php>
+    &lt;/FilesMatch&gt;
+    &lt;Files wp-tinymce.php&gt;
     Allow from all
-    </Files>
-    <Files ms-files.php>
+    &lt;/Files&gt;
+    &lt;Files ms-files.php&gt;
     Allow from all
-    </Files></pre>
+    &lt;/Files&gt;</pre>
   </ul>
 </details>
 
@@ -257,12 +257,15 @@
     Sprawdź uprawnienia do katalogów
   </summary>
   <ul>
-    <li> Standardowy schemat uprawnień wygląda mniej więcej tak: </li>
-    <pre>katalog główny / – 644
-/wp-admin – 644
-/wp-includes – 644
-/wp-content/uploads – 755
-Plik `.htaccess` powinien mieć uprawnienia 644.
+    <li> Standardowy schemat uprawnień wygląda mniej więcej tak:
+      <ul>
+        <li> katalog główny / – 644 </li>
+        <li> /wp-admin – 644 </li>
+        <li> /wp-includes – 644 </li>
+        <li> /wp-content/uploads – 755 </li>
+        <li> .htaccess - 644 </li>
+      </ul>
+    </li>
   </ul>
 </details>
 
