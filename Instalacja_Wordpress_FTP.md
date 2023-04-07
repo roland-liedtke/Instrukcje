@@ -122,7 +122,12 @@
   </summary>
   <ul>
     <li> Pobierz i zainstaluj wtyczkę na starym i nowym CMS’ie </li>
-    <li> kliknij opcję Export - polecam opcję File i skompilowanie wszystkich plików w jeden o rozszerzeniu '.wpress'. </li>
+    <li> Kliknij opcję Export - polecam opcję File i skompilowanie wszystkich plików w jeden o rozszerzeniu '.wpress'. </li>
+    <li> Edytuj plik '.htaccess' w katalogu głównym i dopisz <pre>php_value upload_max_filesize 512M
+php_value post_max_size 512M
+php_value memory_limit 512M
+php_value max_execution_time 300
+php_value max_input_time 300</pre></li>
     <li> Pobierz skompilowany plik, przejdź na drugą stronę i wybierz opcję Import w menu wtyczki. </li>
     <li> Wrzuć pobrany plik, poczekaj, aż wtyczka go przemieli, zaakceptuj nadpisanie danych – właśnie przeniosłeś stronę na nowy serwer. </li>
   </ul>
