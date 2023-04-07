@@ -114,8 +114,39 @@
   </p>
 </details> 
 
+## 3. Przenoszenie Wordpressa
 
-## 3. Dodatkowe Zabezpieczenia
+<details>
+  <summary>
+    Za pomocą wtyczki
+  </summary>
+  <ul>
+    <li> Pobierz i zainstaluj wtyczkę na starym i nowym CMS’ie </li>
+    <li> kliknij opcję Export - polecam opcję File i skompilowanie wszystkich plików w jeden o rozszerzeniu '.wpress'. </li>
+    <li> Pobierz skompilowany plik, przejdź na drugą stronę i wybierz opcję Import w menu wtyczki. </li>
+    <li> Wrzuć pobrany plik, poczekaj, aż wtyczka go przemieli, zaakceptuj nadpisanie danych – właśnie przeniosłeś stronę na nowy serwer. </li>
+  </ul>
+</details>
+
+<details>
+  <summary>
+    Ręczne przeniesienie
+  </summary>
+  <ul>
+    <li> Wyeksportuj kopię bazy danych MySQL
+      <pre>mysqldump -p -u root wordpress > wordpress.sql</pre>
+      <strong>Uwaga:</strong> komenda zadziała, jeśli masz roota i Twoja baza danych nazywa się wordpress.
+      Tak stworzony plik SQL zaimportuj do nowego hostingu, wpisując w konsoli analogiczną komendę:
+      <pre>mysqldump -p -u root wordpress < wordpress.sql</pre>
+    </li>
+
+przenieść kopię plików ze starego serwera za pomocą FTP
+zaktualizować plik wp-config.php
+przekierować domenę na nowy serwer
+  </ul>
+</details>
+
+## 4. Dodatkowe Zabezpieczenia
 
 <details>
   <summary>
@@ -160,7 +191,7 @@
   </ul>
 </details>
 
-## 4. Na koniec
+## 5. Na koniec
 
 <details>
   <summary>
