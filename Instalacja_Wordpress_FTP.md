@@ -114,7 +114,21 @@
   </p>
 </details> 
 
-## 3. Przenoszenie Wordpressa
+## 3. Instalacja motywu
+
+<details>
+  <summary>
+    Przez FTP
+  </summary>
+  <ul>
+    <li> Pobierz spakowany plik motywu </li>
+    <li> Rozpakuj pobrany motyw </li>
+    <li> Skopiuj rozpakowany folder motywu do katalogu wp-content/themes </li>
+    <li> W Panelu Administratora aktywuj nowy motyw </li>
+  </ul>
+</details>
+
+## 4. Przenoszenie Wordpressa
 
 <details>
   <summary>
@@ -151,7 +165,7 @@ przekierować domenę na nowy serwer
   </ul>
 </details>
 
-## 4. Dodatkowe Zabezpieczenia
+## 5. Dodatkowe Zabezpieczenia
 
 <details>
   <summary>
@@ -196,7 +210,7 @@ przekierować domenę na nowy serwer
   </ul>
 </details>
 
-## 5. Na koniec
+## 6. Na koniec
 
 <details>
   <summary>
