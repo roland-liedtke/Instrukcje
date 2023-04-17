@@ -1,6 +1,8 @@
 # `SED`
 is the ultimate `S`tream `ED`itor and is line oriented (only first occurrence is changed)
 
+Domyślnie sed drukuje zawartosc, po wlaczeniu 'p' drukuje podwojnie, ale z parametrem -n wraca do pojedynczego wydruku.
+
 ## S for Substitution
 sed 's/day/night/' old >new
 
@@ -179,3 +181,13 @@ Zamienia słowa `day` na `night` w pliku `old` i nadpisuje je (>) w pliku `new`.
 		<td align="left">Opposite of \w</td>
 	</tr>
 </tbody></table>
+
+
+Deleting Text
+You can perform text deletion where you previously were specifying text printing by changing the p command to the d command.
+
+In this case, you no longer need the -n command because sed will print everything that is not deleted. This will help you see what’s going on.
+
+Modify the last command from the previous section to make it delete every other line starting with the first:
+
+sed '1~2d' BSD
