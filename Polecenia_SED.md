@@ -3,6 +3,10 @@ is the ultimate `S`tream `ED`itor and is line oriented (only first occurrence is
 
 Domyślnie sed drukuje zawartosc, po wlaczeniu 'p' drukuje podwojnie, ale z parametrem -n wraca do pojedynczego wydruku.
 
+The = command writes the line number followed by its contents on the standard output stream. The following example illustrates this.
+
+[jerry]$ sed '=' books.txt 
+
 ## S for Substitution
 sed 's/day/night/' old >new
 
